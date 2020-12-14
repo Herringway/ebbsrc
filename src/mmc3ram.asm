@@ -1,0 +1,7 @@
+.SEGMENT "MMC3RAM"
+
+.INCLUDE "common.asm"
+
+.ORG $6700
+UNKNOWN_6700: ;$6700
+	.RES 2

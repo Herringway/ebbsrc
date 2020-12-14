@@ -1,3 +1,5 @@
 *.o
 src/bin
 *.nes
+*.dep
+*.deb
