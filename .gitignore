@@ -3,3 +3,4 @@ src/bin
 *.nes
 *.dep
 *.deb
+*.lst

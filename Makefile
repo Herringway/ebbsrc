@@ -8,7 +8,7 @@ USSRCDIR = src/prg
 USSRCS = $(wildcard $(USSRCDIR)/*.asm) src/chr/chr.asm src/header.asm src/ram.asm src/mmc3ram.asm
 
 %.dep: %.asm
-	ca65 $(CA65FLAGS) --create-dep "$@" "$<"
+	ca65 $(CA65FLAGS) --listing "$(patsubst %.dep,%.lst,$@)" --create-dep "$@" "$<"
 
 include $(wildcard $(USSRCDIR)/*.dep)
 
@@ -21,4 +21,4 @@ extract:
 	dub run ebbinex -- "donor.nes" "src/bin"
 
 %.o: %.asm
-	ca65 ${CA65FLAGS} -o $@ $<
+	ca65 ${CA65FLAGS} --listing "$(patsubst %.o,%.lst,$@)" -o $@ $<
