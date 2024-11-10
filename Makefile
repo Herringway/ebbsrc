@@ -8,8 +8,8 @@ CA65FLAGS = -t none --cpu 6502 --bin-include-dir src --include-dir src
 LD65FLAGS = -C nes.cfg
 
 USID = usa
-SRCDIR = src/prg
-USSRCS = $(wildcard $(SRCDIR)/*.asm) src/chr/chr.asm src/header.asm src/ram.asm src/mmc3ram.asm
+SRCDIR = src
+USSRCS = $(wildcard $(SRCDIR)/prg/*.asm) src/chr/chr.asm src/header.asm src/ram.asm src/mmc3ram.asm
 USOBJS = $(subst $(SRCDIR), $(BUILDDIR)/usa, $(patsubst %.asm, %.o, $(USSRCS)))
 
 $(BUILDDIR)/usa%.dep: $(SRCDIR)/%.asm
