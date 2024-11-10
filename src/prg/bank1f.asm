@@ -1914,7 +1914,9 @@ UNKNOWN_ECF2:
 
 UNKNOWN_ECFC:
 	LDX #$FC
-	BIT $04A2
+	.BYTE $2C ;this + the following LDX is interpreted as BIT $04A2, which is effectively a no-op that allows us to skip the following LDX
+UNKNOWN_ECFF:
+	LDX #$04
 	JSR UNKNOWN_FD33
 	STX $E9
 	LDX #$14
@@ -3062,6 +3064,8 @@ UNKNOWN_F4B8:
 	BPL @UNKNOWN0
 	JSR UNKNOWN_F4A3
 	JMP UNKNOWN_FD41
+
+UNKNOWN_F4CE:
 	ASL
 	STA $60
 	TXA
@@ -3459,6 +3463,8 @@ UNKNOWN_F759:
 	LDA #$00
 	STA $D7
 	JMP UNKNOWN_FD41
+
+UNKNOWN_F760:
 	LDA #$01
 	STA $5A
 	RTS
